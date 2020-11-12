@@ -7,15 +7,24 @@ function [OUT, varargout] = denormalize(varargin)
 %     Apply NNV = NV*SCALE + BIAS
 %   [NNV, [SCALE, BIAS]] = denormalize(DATA, NV)
 %     Apply NNV = NV*SCALE + BIAS
+  if nargin < 1
+    error("Not enough input argument");
+  end
+
+  bias = min(varargin{1}, [], 'all');
+  scale = max(varargin{1}, [], 'all') - bias;
 
   if nargin == 1
-    bias = min(varargin{1}, [], 'all');
-    scale = max(varargin{1}, [], 'all') - bias;
-    OUT = [ scale, bias ];
+    if nargout <= 1
+      OUT = [ scale, bias ];
+    elseif nargout == 2
+      OUT = scale;
+      varargout{1}= bias;
+    else
+      error("Too many output arguments");
+    end
   elseif nargin==2
     % varargin{2} will be a normalized value in [0, 1]
-    bias = min(varargin{1}, [], 'all');
-    scale = max(varargin{1}, [], 'all') - bias;
 
     % OUT will be the denormalize quantity
     OUT = varargin{2}*scale + bias;
@@ -26,6 +35,8 @@ function [OUT, varargout] = denormalize(varargin)
       elseif nargout == 3
         varargout{1} = scale;
         varargout{2} = bias;
+      elseif nargout > 3
+        error("Too many output arguments");
       end
     end
 end

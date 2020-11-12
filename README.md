@@ -33,21 +33,21 @@ cd path/to/my/project/directory/
 ## Use it
 ```MATLAB
 %% Do something only the first time you run the script
-if omutils.onlyonce()
+if om.utils.onlyonce()
   disp("As long as you don't 'clear all', you will see this message only once");
   load('VeryHugeFile.mat');
 end
 
 %% Get incremental counter for figures
 % So you don't mistakenly use the same figure twice
-figure(omutils.nextnum());
+figure(om.utils.nextnum());
 plot(wonderful_data);
 
-figure(omutils.nextnum());
+figure(om.utils.nextnum());
 plot(wonderful_data);
 
 %% Normalize data
-[D, SCALE, BIAS] = omutils.normalize(DATA);
+[D, SCALE, BIAS] = om.utils.normalize(DATA);
 
 %% Use help for further usage information
 ```

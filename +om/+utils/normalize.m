@@ -17,7 +17,7 @@ function [d, varargout] = normalize(data)
   d = (data - bias)./scale;
 
   % Optional detected data ranges
-  if nargout
+  if nargout > 1
     if nargout == 2
       varargout{1} = [scale, bias];
     elseif nargout==3

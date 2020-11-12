@@ -1,6 +1,6 @@
 function n = nextnum(varargin)
 % nextnum   Yield sequential integers
-%   n = nextnum() yields 0 the first time it is called
+%   n = nextnum() yields 1 the first time it is called
 %   Later it will yield the last yielded number incremented by STEP
 %   STEP is 1 by default
 %
@@ -21,7 +21,7 @@ function n = nextnum(varargin)
     if nargin
         if nargin > 1
             step = varargin{2};
-        else
+        elseif isempty(step);
             step = 1;
         end
         k = varargin{1} - step;
