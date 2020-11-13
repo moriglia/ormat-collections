@@ -2,3 +2,4 @@ add_to_path_configured.m
 **/pathdef.m
 **/add_ormat_to_this_project.m
 *~
+test/*.m

@@ -1,0 +1,16 @@
+#ifndef TEST_BOILERPLATE
+#define TEST_BOILERPLATE
+
+#ifndef TEST_NAME
+#define TEST_NAME generate_test_suite
+#endif /* TEST_NAME */
+
+function test_suite=TEST_NAME
+    try
+        test_functions=localfunctions();
+    catch
+    end
+    initTestSuite;
+end
+
+#endif /* TEST_BOILERPLATE */

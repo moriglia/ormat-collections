@@ -1,16 +1,16 @@
-disp("Testing om.utils.onlyonce");
-clear onlyonce;
-assert(om.utils.onlyonce(), "Failed the first time!");
-
-for k=1:5
-  assert(om.utils.onlyonce(k), "Failed the first time with handler %d", k);
+function test_first_time
+    clear onlyonce;
+    assertTrue(om.utils.onlyonce());
+    assertFalse(om.utils.onlyonce());
 end
 
-for k=1:5
-  assert(~om.utils.onlyonce(k), "It was not the first time for handler %d", k);
+function test_handlers
+    clear onlyonce;
+    for k=1:5
+        assertTrue(om.utils.onlyonce(k));
+        for l=1:10
+            assertFalse(om.utils.onlyonce(k));
+        end
+    end
+    clear onlyonce;
 end
-
-clear k;
-clear onlyonce;
-
-disp("Test completed");

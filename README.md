@@ -1,4 +1,6 @@
 # OrMAT Collections
+[![GitHub license](https://img.shields.io/github/license/moriglia/ormat-collections)](https://github.com/moriglia/ormat-collections/blob/master/LICENSE)
+
 A collection of MATLAB utilities I may use in different projects or courses
 
 ## Installation
@@ -51,3 +53,6 @@ plot(wonderful_data);
 
 %% Use help for further usage information
 ```
+
+## Test
+Testing makes use of [MOxUnit](https://github.com/MOxUnit/MOxUnit)
